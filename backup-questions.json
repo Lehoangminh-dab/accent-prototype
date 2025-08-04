@@ -1,0 +1,39 @@
+{
+  "questions": [
+    {
+      "sentenceBefore": "Can you share the latest ",
+      "sentenceAfter": " with QA?",
+      "correctAnswer": "build",
+      "audioFile": "audio/Can you share the latest build with QA (South-African).m4a",
+      "accent": "South-African"
+    },
+    {
+      "sentenceBefore": "Can you share the latest ",
+      "sentenceAfter": " with QA?",
+      "correctAnswer": "build",
+      "audioFile": "audio/Can you share the latest build with QA (Vietnamese).m4a",
+      "accent": "Vietnamese"
+    },
+    {
+      "sentenceBefore": "Let's schedule a ",
+      "sentenceAfter": " to review milestones.",
+      "correctAnswer": "call",
+      "audioFile": "audio/Let's schedule a call to review milestones (American).m4a",
+      "accent": "American"
+    },
+    {
+      "sentenceBefore": "The client requested a ",
+      "sentenceAfter": " of the authentication module.",
+      "correctAnswer": "demo",
+      "audioFile": "audio/The client requested a demo of the authentication module (Australian).m4a",
+      "accent": "Australian"
+    },
+    {
+      "sentenceBefore": "We should align ",
+      "sentenceAfter": " with client expectations.",
+      "correctAnswer": "sprint goals",
+      "audioFile": "audio/We should align sprint goals with client expectations (Indian).m4a",
+      "accent": "Indian"
+    }
+  ]
+} 
