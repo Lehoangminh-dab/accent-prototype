@@ -4,28 +4,28 @@
       "sentenceBefore": "I need to check into my ",
       "sentenceAfter": ".",
       "correctAnswer": "deluxe room",
-      "audioFile": "audio/hospitality/restaurants/Can I see your wine list (American).m4a",
+      "audioFile": "audio/hospitality/hotels/I need to check into my deluxe room (American).m4a",
       "accent": "American"
     },
     {
       "sentenceBefore": "Where is the ",
       "sentenceAfter": " located?",
       "correctAnswer": "fine dining restaurant",
-      "audioFile": "audio/hospitality/restaurants/What's on the seafood menu (Irish).m4a",
+      "audioFile": "audio/hospitality/hotels/Where is the fine dining restaurant located (irish).m4a",
       "accent": "Irish"
     },
     {
       "sentenceBefore": "Can you help me with ",
       "sentenceAfter": "?",
       "correctAnswer": "concierge service",
-      "audioFile": "audio/hospitality/restaurants/When will my order be ready (Filipino).m4a",
+      "audioFile": "audio/hospitality/hotels/Can you help me with concierge service (Filipino).m4a",
       "accent": "Filipino"
     },
     {
       "sentenceBefore": "I lost my ",
       "sentenceAfter": ".",
       "correctAnswer": "room key",
-      "audioFile": "audio/hospitality/restaurants/I have food allergies (Indian).m4a",
+      "audioFile": "audio/hospitality/hotels/I lost my room key (Indian).m4a",
       "accent": "Indian"
     }
   ]
