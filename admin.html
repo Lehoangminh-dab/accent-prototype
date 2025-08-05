@@ -12,17 +12,27 @@
             padding: 20px;
         }
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
         label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             font-weight: bold;
+            font-size: 18px;
         }
         select, button {
             width: 100%;
             padding: 10px;
             font-size: 16px;
+        }
+        select {
+            height: auto;
+            min-height: 45px;
+        }
+        select option {
+            padding: 8px 10px;
+            margin: 2px 0;
+            line-height: 1.4;
         }
         button {
             background: #007bff;
@@ -87,9 +97,9 @@
                 // Fallback to hardcoded options if fetch fails
                 const select = document.getElementById('questionSet');
                 const fallbackOptions = [
-                    { value: 'hospitality-hotels', text: 'Hospitality Hotels' },
-                    { value: 'it-engineer', text: 'IT Engineer' },
-                    { value: 'hospitality-restaurants', text: 'Hospitality Restaurants' }
+                    { value: 'hospitality-hotels', text: 'Hospitality - Hotels' },
+                    { value: 'it-engineer', text: 'IT - Engineer' },
+                    { value: 'hospitality-restaurants', text: 'Hospitality - Restaurants' }
                 ];
                 fallbackOptions.forEach(opt => {
                     const option = document.createElement('option');
