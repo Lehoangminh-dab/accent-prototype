@@ -98,6 +98,12 @@
             });
             
             console.log('Question sets loaded successfully');
+            
+            // Debug: Log current URL info
+            console.log('Current location:', window.location.href);
+            console.log('Origin:', window.location.origin);
+            console.log('Pathname:', window.location.pathname);
+            console.log('Hostname:', window.location.hostname);
         }
 
         function createSession() {
@@ -110,10 +116,11 @@
             // Generate unique session ID
             const sessionId = Date.now().toString(36) + Math.random().toString(36).substr(2);
             
-            // Create session URL
-            const sessionUrl = `${window.location.origin}/session.html?session=${sessionId}&set=${questionSet}`;
+            // Create session URL - simplified approach
+            const sessionUrl = `./session.html?session=${sessionId}&set=${questionSet}`;
             
             // Display the session link
+            console.log('Generated session URL:', sessionUrl);
             document.getElementById('sessionUrl').href = sessionUrl;
             document.getElementById('sessionUrl').textContent = sessionUrl;
             document.getElementById('sessionResult').style.display = 'block';
