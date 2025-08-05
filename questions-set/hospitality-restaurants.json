@@ -4,28 +4,28 @@
       "sentenceBefore": "Can I see your ",
       "sentenceAfter": " list?",
       "correctAnswer": "wine",
-      "audioFile": "",
+      "audioFile": "audio/hospitality/restaurants/Can I see your wine list (American).m4a",
       "accent": "American"
     },
     {
       "sentenceBefore": "What's on the ",
       "sentenceAfter": "?",
       "correctAnswer": "seafood menu",
-      "audioFile": "",
+      "audioFile": "audio/hospitality/restaurants/What's on the seafood menu (Irish).m4a",
       "accent": "Irish"
     },
     {
       "sentenceBefore": "When will my ",
       "sentenceAfter": " be ready?",
       "correctAnswer": "order",
-      "audioFile": "",
+      "audioFile": "audio/hospitality/restaurants/When will my order be ready (Filipino).m4a",
       "accent": "Filipino"
     },
     {
       "sentenceBefore": "I have food ",
       "sentenceAfter": ".",
       "correctAnswer": "allergies",
-      "audioFile": "",
+      "audioFile": "audio/hospitality/restaurants/I have food allergies (Indian).m4a",
       "accent": "Indian"
     }
   ]

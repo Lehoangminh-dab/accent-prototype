@@ -80,30 +80,55 @@
             console.log('Loading question sets...');
             const select = document.getElementById('questionSet');
             
-            // Use hardcoded options since directory listing might not be available
+            try {
+                // Try to fetch the list of JSON files from questions-set directory
+                const response = await fetch('./questions-set/');
+                if (response.ok) {
+                    const text = await response.text();
+                    // Parse the directory listing to find JSON files
+                    const jsonFiles = text.match(/href="([^"]*\.json)"/g);
+                    if (jsonFiles) {
+                        jsonFiles.forEach(fileMatch => {
+                            const fileName = fileMatch.match(/href="([^"]*\.json)"/)[1];
+                            const baseName = fileName.replace('.json', '');
+                            const displayName = baseName.split('-').map(word => 
+                                word.charAt(0).toUpperCase() + word.slice(1)
+                            ).join(' - ');
+                            
+                            const option = document.createElement('option');
+                            option.value = baseName;
+                            option.textContent = displayName;
+                            select.appendChild(option);
+                            console.log('Added option:', displayName);
+                        });
+                    }
+                } else {
+                    // Fallback to hardcoded options if directory listing fails
+                    loadFallbackOptions();
+                }
+            } catch (error) {
+                console.log('Error loading question sets, using fallback:', error);
+                loadFallbackOptions();
+            }
+            
+            console.log('Question sets loaded successfully');
+        }
+
+        function loadFallbackOptions() {
+            const select = document.getElementById('questionSet');
             const questionSetOptions = [
                 { value: 'hospitality-hotels', text: 'Hospitality - Hotels' },
                 { value: 'it-engineer', text: 'IT - Engineer' },
                 { value: 'hospitality-restaurants', text: 'Hospitality - Restaurants' }
             ];
             
-            console.log('Adding question set options:', questionSetOptions);
-            
             questionSetOptions.forEach(opt => {
                 const option = document.createElement('option');
                 option.value = opt.value;
                 option.textContent = opt.text;
                 select.appendChild(option);
-                console.log('Added option:', opt.text);
+                console.log('Added fallback option:', opt.text);
             });
-            
-            console.log('Question sets loaded successfully');
-            
-            // Debug: Log current URL info
-            console.log('Current location:', window.location.href);
-            console.log('Origin:', window.location.origin);
-            console.log('Pathname:', window.location.pathname);
-            console.log('Hostname:', window.location.hostname);
         }
 
         function createSession() {
