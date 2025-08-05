@@ -77,37 +77,27 @@
     <script>
         // Load question sets dynamically
         async function loadQuestionSets() {
-            try {
-                const response = await fetch('/questions-set/');
-                const text = await response.text();
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(text, 'text/html');
-                const links = doc.querySelectorAll('a[href$=".json"]');
-                
-                const select = document.getElementById('questionSet');
-                links.forEach(link => {
-                    const filename = link.href.split('/').pop().replace('.json', '');
-                    const option = document.createElement('option');
-                    option.value = filename;
-                    option.textContent = filename.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-                    select.appendChild(option);
-                });
-            } catch (error) {
-                console.error('Error loading question sets:', error);
-                // Fallback to hardcoded options if fetch fails
-                const select = document.getElementById('questionSet');
-                const fallbackOptions = [
-                    { value: 'hospitality-hotels', text: 'Hospitality - Hotels' },
-                    { value: 'it-engineer', text: 'IT - Engineer' },
-                    { value: 'hospitality-restaurants', text: 'Hospitality - Restaurants' }
-                ];
-                fallbackOptions.forEach(opt => {
-                    const option = document.createElement('option');
-                    option.value = opt.value;
-                    option.textContent = opt.text;
-                    select.appendChild(option);
-                });
-            }
+            console.log('Loading question sets...');
+            const select = document.getElementById('questionSet');
+            
+            // Use hardcoded options since directory listing might not be available
+            const questionSetOptions = [
+                { value: 'hospitality-hotels', text: 'Hospitality - Hotels' },
+                { value: 'it-engineer', text: 'IT - Engineer' },
+                { value: 'hospitality-restaurants', text: 'Hospitality - Restaurants' }
+            ];
+            
+            console.log('Adding question set options:', questionSetOptions);
+            
+            questionSetOptions.forEach(opt => {
+                const option = document.createElement('option');
+                option.value = opt.value;
+                option.textContent = opt.text;
+                select.appendChild(option);
+                console.log('Added option:', opt.text);
+            });
+            
+            console.log('Question sets loaded successfully');
         }
 
         function createSession() {
@@ -138,7 +128,9 @@
         }
 
         // Load question sets when page loads
-        window.addEventListener('load', loadQuestionSets);
+        window.addEventListener('load', () => {
+            setTimeout(loadQuestionSets, 100); // Small delay to ensure DOM is ready
+        });
     </script>
 </body>
 </html> 
