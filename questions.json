@@ -1,20 +1,6 @@
 {
   "questions": [
     {
-      "sentenceBefore": "Can you share the latest ",
-      "sentenceAfter": " with QA?",
-      "correctAnswer": "build",
-      "audioFile": "audio/Can you share the latest build with QA (South-African).m4a",
-      "accent": "South-African"
-    },
-    {
-      "sentenceBefore": "Can you share the latest ",
-      "sentenceAfter": " with QA?",
-      "correctAnswer": "build",
-      "audioFile": "audio/Can you share the latest build with QA (Vietnamese).m4a",
-      "accent": "Vietnamese"
-    },
-    {
       "sentenceBefore": "Let's schedule a ",
       "sentenceAfter": " to review milestones.",
       "correctAnswer": "call",
@@ -27,6 +13,13 @@
       "correctAnswer": "demo",
       "audioFile": "audio/The client requested a demo of the authentication module (Australian).m4a",
       "accent": "Australian"
+    },
+    {
+      "sentenceBefore": "Can you share the latest ",
+      "sentenceAfter": " with QA?",
+      "correctAnswer": "build",
+      "audioFile": "audio/Can you share the latest build with QA (South-African).m4a",
+      "accent": "South-African"
     },
     {
       "sentenceBefore": "We should align ",
