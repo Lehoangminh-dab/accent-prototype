@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Session Creator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        select, button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .session-link {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+        }
+        .session-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create New Session</h1>
+    
+    <div class="form-group">
+        <label for="questionSet">Select Question Set:</label>
+        <select id="questionSet">
+            <option value="">Choose a question set...</option>
+        </select>
+    </div>
+    
+    <button onclick="createSession()">Create Session</button>
+    
+    <div id="sessionResult" class="session-link" style="display: none;">
+        <h3>Session Created!</h3>
+        <p>Share this link with participants:</p>
+        <a id="sessionUrl" href="#" target="_blank"></a>
+    </div>
+
+    <script>
+        // Load question sets dynamically
+        async function loadQuestionSets() {
+            try {
+                const response = await fetch('/questions-set/');
+                const text = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, 'text/html');
+                const links = doc.querySelectorAll('a[href$=".json"]');
+                
+                const select = document.getElementById('questionSet');
+                links.forEach(link => {
+                    const filename = link.href.split('/').pop().replace('.json', '');
+                    const option = document.createElement('option');
+                    option.value = filename;
+                    option.textContent = filename.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                    select.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error loading question sets:', error);
+                // Fallback to hardcoded options if fetch fails
+                const select = document.getElementById('questionSet');
+                const fallbackOptions = [
+                    { value: 'hospitality-hotels', text: 'Hospitality Hotels' },
+                    { value: 'it-engineer', text: 'IT Engineer' },
+                    { value: 'hospitality-restaurants', text: 'Hospitality Restaurants' }
+                ];
+                fallbackOptions.forEach(opt => {
+                    const option = document.createElement('option');
+                    option.value = opt.value;
+                    option.textContent = opt.text;
+                    select.appendChild(option);
+                });
+            }
+        }
+
+        function createSession() {
+            const questionSet = document.getElementById('questionSet').value;
+            if (!questionSet) {
+                alert('Please select a question set');
+                return;
+            }
+            
+            // Generate unique session ID
+            const sessionId = Date.now().toString(36) + Math.random().toString(36).substr(2);
+            
+            // Create session URL
+            const sessionUrl = `${window.location.origin}/session.html?session=${sessionId}&set=${questionSet}`;
+            
+            // Display the session link
+            document.getElementById('sessionUrl').href = sessionUrl;
+            document.getElementById('sessionUrl').textContent = sessionUrl;
+            document.getElementById('sessionResult').style.display = 'block';
+            
+            // Store session data in localStorage (simple approach for demo)
+            const sessions = JSON.parse(localStorage.getItem('sessions') || '{}');
+            sessions[sessionId] = {
+                questionSet: questionSet,
+                createdAt: new Date().toISOString()
+            };
+            localStorage.setItem('sessions', JSON.stringify(sessions));
+        }
+
+        // Load question sets when page loads
+        window.addEventListener('load', loadQuestionSets);
+    </script>
+</body>
+</html> 

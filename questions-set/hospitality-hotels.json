@@ -1,0 +1,32 @@
+{
+  "questions": [
+    {
+      "sentenceBefore": "I need to check into my ",
+      "sentenceAfter": ".",
+      "correctAnswer": "deluxe room",
+      "audioFile": "",
+      "accent": "American"
+    },
+    {
+      "sentenceBefore": "Where is the ",
+      "sentenceAfter": " located?",
+      "correctAnswer": "fine dining restaurant",
+      "audioFile": "",
+      "accent": "Irish"
+    },
+    {
+      "sentenceBefore": "Can you help me with ",
+      "sentenceAfter": "?",
+      "correctAnswer": "concierge service",
+      "audioFile": "",
+      "accent": "Filipino"
+    },
+    {
+      "sentenceBefore": "I lost my ",
+      "sentenceAfter": ".",
+      "correctAnswer": "room key",
+      "audioFile": "",
+      "accent": "Indian"
+    }
+  ]
+} 

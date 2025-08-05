@@ -1,0 +1,32 @@
+{
+  "questions": [
+    {
+      "sentenceBefore": "Can I see your ",
+      "sentenceAfter": " list?",
+      "correctAnswer": "wine",
+      "audioFile": "",
+      "accent": "American"
+    },
+    {
+      "sentenceBefore": "What's on the ",
+      "sentenceAfter": "?",
+      "correctAnswer": "seafood menu",
+      "audioFile": "",
+      "accent": "Irish"
+    },
+    {
+      "sentenceBefore": "When will my ",
+      "sentenceAfter": " be ready?",
+      "correctAnswer": "order",
+      "audioFile": "",
+      "accent": "Filipino"
+    },
+    {
+      "sentenceBefore": "I have food ",
+      "sentenceAfter": ".",
+      "correctAnswer": "allergies",
+      "audioFile": "",
+      "accent": "Indian"
+    }
+  ]
+} 
